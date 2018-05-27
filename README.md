@@ -5,19 +5,19 @@
 
 Sincerely ImNotGUI (Also stylized as Im!GUI) is collection of scripts for immediate GUI, For *GameMaker: Studio*.
 
-Originally developed for easier debugging on *GameMaker Studio: 1*...
+Originally developed for easier debugging on *GameMaker: Studio: 1*...
 
 It is also a parody (sort of) of [Omar Cornut's Dear ImGUI.](https://github.com/ocornut/imgui)
 
 ### Features:
 * *"Fast"* UI drawing accomplished by abusing GameMaker's Sprite-batch
-* *Simple* UI system suitable for quick debugging. No need to setup your UI elements at first for quick debug!
+* *"Simple"* UI system suitable for quick debugging. No need to setup your UI elements at first for quick debug!
 
-The code:
+This code:
 
 ![An example](https://TandyRum1024.github.io/imnotgui/example1.png)
 
-And the result:
+Produces this result:
 
 ![A result](https://TandyRum1024.github.io/imnotgui/example1-result.png)
 
@@ -30,6 +30,31 @@ And the result:
 * **TextBox** - An input field which the Users can type into. (Also comes with number-only variant.)
 
 
-### How-to use on your GameMaker project:
+### How-to use:
 
-Just import the `IMNOTGUI.gmez` file in the GameMaker : Studio.
+Just import the `IMNOTGUI.gmez` file from the folder `EXTENSION_GOES_HERE`, In the GameMaker: Studio.
+
+This repo itself is the "demo" project of **Im!GUI**, For *GameMaker: Studio 1.*
+
+Feel free to play around with it!
+
+### Gallery
+
+![gallery picture numero uno](https://TandyRum1024.github.io/imnotgui/gal1.png)
+![gallery picture numero dos](https://TandyRum1024.github.io/imnotgui/gal2.png)
+![gallery picture numero tres](https://TandyRum1024.github.io/imnotgui/gal3.png)
+![gallery picture numero cuatro](https://TandyRum1024.github.io/imnotgui/logo-small.png)
+
+### Misc:
+
+Check out my [Twitter](https://twitter.com/ZIKBAKGURI) for yet another projects n' more!
+
+Also you can contact me via my mail : *yubin2892@gmail.com*
+
+###### (I rarely check my email, Though.)
+
+and most importantly, ***GLHF!***
+
+------------------------
+
+###### ◆ 2018/05/27 MilkForDunk @ All the lefts belongs to me =D

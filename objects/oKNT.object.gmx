@@ -297,7 +297,7 @@ iui_rect(42, 680, 1196, 40, iuHellaDark);
 // tab, textbox
 // see iui_init_vars() for ui_tab_test_idx
 var TAB_X = 42;
-ui_tab_test_idx = iui_tab(TAB_X, 30, 140, 50, pack("IMnotGUI", "Test area", "why?", "how?", "who?", "MISC."), ui_tab_test_idx, 1);
+ui_tab_test_idx = iui_tab(TAB_X, 30, 140, 50, pack("IMnotGUI", "Test area", "why?", "how?", "contact", "MISC."), ui_tab_test_idx, 1);
 
 switch (ui_tab_test_idx)
 {
@@ -495,7 +495,7 @@ switch (ui_tab_test_idx)
         draw_set_font(fnt_huge);
         // Big name
         iui_rect(nameX - 4, nameY, string_width("MILKFORDUNK") + 8, string_height("MILKFORDUNK") + 4, iuBrown);
-        iui_label_shadow(nameX, nameY, "MILKFORDUNK", iuCream, 0, 10, iuHellaDark);
+        iui_label_shadow(nameX, nameY, "MILKFORDUNK", iuCream, 0, 9, iuHellaDark);
         
         draw_set_font(fnt_bigge);
         // Smol desc.
@@ -518,14 +518,13 @@ switch (ui_tab_test_idx)
         var linkColour = iuSky;
         var linkStr    = "@ZIKBAKGURI";
         var linkOffX, linkW, linkH;
-        // we can't use shadow variant here; We want fully solid shadow, Not tinted shadow.
-        // Thankfully the icon is rectangle... That means we can draw Rect for shadow!
-        //iui_rect(linkX - iconSize, linkY - iconSize + 10, 42, 42, iuHellaDark);
-        
-        
+
         draw_set_valign(1);
         
         /// Twitter
+        // we can't use shadow variant here; We want fully solid shadow, Not tinted shadow.
+        // Thankfully the icon is rectangle... That means we can draw Rect for shadow!
+        iui_rect(linkX - iconSize, linkY - iconSize + 10, 42, 42, iuHellaDark);
         iui_sprite(spr_icons42, 0, linkX, linkY, c_white, 1);
         iui_label(linkX + 31, linkY, "Twitter : ", iuCream);
         
@@ -553,6 +552,7 @@ switch (ui_tab_test_idx)
         
         
         /// Youtube
+        iui_rect(linkX - iconSize, linkY - iconSize + 10, 42, 42, iuHellaDark);
         iui_sprite(spr_icons42, 1, linkX, linkY, c_white, 1);
         iui_label(linkX + 31, linkY, "YT : ", iuCream);
         
@@ -576,6 +576,7 @@ switch (ui_tab_test_idx)
         
         
         /// Naver
+        iui_rect(linkX - iconSize, linkY - iconSize + 10, 42, 42, iuHellaDark);
         iui_sprite(spr_icons42, 2, linkX, linkY, c_white, 1);
         iui_label(linkX + 31, linkY, "NAVER blog : ", iuCream);
         
