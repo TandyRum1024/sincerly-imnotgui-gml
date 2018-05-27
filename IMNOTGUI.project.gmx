@@ -18,7 +18,7 @@
     <sprite>sprites\spr_advertise</sprite>
     <sprite>sprites\spr_diamond</sprite>
     <sprite>sprites\spr_pfp</sprite>
-    <sprite>sprites\spr_test42</sprite>
+    <sprite>sprites\spr_icons42</sprite>
     <sprite>sprites\spr_chip64</sprite>
   </sprites>
   <backgrounds name="background"/>

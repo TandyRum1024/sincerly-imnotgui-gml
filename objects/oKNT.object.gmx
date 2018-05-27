@@ -526,7 +526,7 @@ switch (ui_tab_test_idx)
         draw_set_valign(1);
         
         /// Twitter
-        iui_sprite(spr_test42, 0, linkX, linkY, c_white, 1);
+        iui_sprite(spr_icons42, 0, linkX, linkY, c_white, 1);
         iui_label(linkX + 31, linkY, "Twitter : ", iuCream);
         
         // clickable stuff
@@ -553,7 +553,7 @@ switch (ui_tab_test_idx)
         
         
         /// Youtube
-        iui_sprite(spr_test42, 1, linkX, linkY, c_white, 1);
+        iui_sprite(spr_icons42, 1, linkX, linkY, c_white, 1);
         iui_label(linkX + 31, linkY, "YT : ", iuCream);
         
         linkStr = ":D MilkForDunk";
@@ -576,7 +576,7 @@ switch (ui_tab_test_idx)
         
         
         /// Naver
-        iui_sprite(spr_test42, 2, linkX, linkY, c_white, 1);
+        iui_sprite(spr_icons42, 2, linkX, linkY, c_white, 1);
         iui_label(linkX + 31, linkY, "NAVER blog : ", iuCream);
         
         linkStr = "rjansrhals";
