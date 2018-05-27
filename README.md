@@ -55,6 +55,13 @@ Also you can contact me via my mail : *yubin2892@gmail.com*
 
 and most importantly, ***GLHF!***
 
+### TODO:
+
+* Actually finish the demo
+* Add an excutable demo binary
+* todo
+* dododo dododododooodododododododdodo
+
 ------------------------
 
 ###### ◆ 2018/05/27 MilkForDunk @ All the lefts belongs to me =D
