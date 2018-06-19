@@ -91,8 +91,7 @@ for (i = 0; i < maxLines; i++)
 }
 
 // draw the strings
-draw_set_halign(1);
-draw_set_valign(1);
+iui_align_center();
 
 for (i = 0; i < maxLines; i++)
 {
@@ -106,8 +105,7 @@ for (i = 0; i < maxLines; i++)
     draw_text_colour(strOffsetX, (lineH * i) - strOffsetY, currentStr, currentCol, currentCol, currentCol, currentCol, 1);
 }
 
-draw_set_halign(0);
-draw_set_valign(0);
+iui_align_pop();
 
 
 surface_reset_target();

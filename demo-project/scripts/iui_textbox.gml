@@ -173,9 +173,10 @@ iui_rect(bx + 2, by + 2, insideWid, bh - 4, fillColour); // inside
 
 // text
 if (mustTrim)
-    trimText = strTrim_nodots(trimText, insideWid - 8);
+    trimText = string_copy(trimText, 1, (displayChars - 1));//strTrim_nodots(trimText, insideWid - 8);
 
-draw_set_valign(1);
+iui_align_push(fa_left, fa_middle);
+
 iui_label(bx + 10, by + (bh >> 1), trimText, iuiColTextBoxText);
 
 // Fading 3 chars for trimming
@@ -196,7 +197,8 @@ if (mustTrim)
     
     iui_label_alpha(textOffX, textOffY + sin((iuiAnimTime * 0.1) + 84) * 6, tmpChar, iuiColTextBoxText, 0.25);
 }
-draw_set_valign(0);
+
+iui_align_pop();
 
 // cursor
 var cursorX = string_width(string_copy(currentText, 1, (cursorPos - showPos)));
@@ -345,9 +347,14 @@ if (isFocus)
         if (cursorPos > (showPos + maxChars) - 1) // move er'!
             showPos++;
     }
-    else if (inputCode >= 45 && cursorPos == 0) // minus
+    else if (inputCode == 45 && cursorPos == 0) // minus
     {
         currentText = string_insert('-', currentText, cursorPos + 1);
+        cursorPos++;
+    }
+    else if (inputCode == 46 && string_pos(currentText, '.') == 0) // dot
+    {
+        currentText = string_insert('.', currentText, cursorPos + 1);
         cursorPos++;
     }
 }
@@ -379,7 +386,8 @@ iui_rect(bx + 2, by + 2, insideWid, bh - 4, fillColour); // inside
 if (mustTrim)
     trimText = strTrim_nodots(trimText, insideWid - 8);
 
-draw_set_valign(1);
+iui_align_push(fa_left, fa_middle);
+
 iui_label(bx + 10, by + (bh >> 1), trimText, iuiColTextBoxText);
 
 // Fading 3 chars for trimming
@@ -400,7 +408,8 @@ if (mustTrim)
     
     iui_label_alpha(textOffX, textOffY + sin((iuiAnimTime * 0.1) + 84) * 6, tmpChar, iuiColTextBoxText, 0.25);
 }
-draw_set_valign(0);
+
+iui_align_pop();
 
 // cursor
 var cursorX = string_width(string_copy(currentText, 1, (cursorPos - showPos)));

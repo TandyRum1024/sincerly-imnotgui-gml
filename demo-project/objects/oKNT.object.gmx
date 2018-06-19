@@ -296,8 +296,9 @@ iui_rect(42, 85, 1196, 600, iuDark);
 iui_rect(42, 680, 1196, 40, iuHellaDark);
 
 
-// tab, textbox
 // see iui_init_vars() for ui_tab_test_idx
+var sine01_ = sin(iuiAnimTime * 0.1); // sine cache
+
 var TAB_X = 42;
 ui_tab_main_idx = iui_tab(TAB_X, 30, 140, 50, pack("IMnotGUI", "elements", "why?", "how?", "contact", "MISC."), ui_tab_main_idx, 1);
 
@@ -308,18 +309,17 @@ switch (ui_tab_main_idx)
         draw_sprite(spr_biglogo, 0, SCREEN_CENTER_X, SCREEN_CENTER_Y / 2);
         iui_label(SCREEN_CENTER_X - 257, SCREEN_CENTER_Y / 4 + 12, "Sincerely,", iuCream);
         
-        draw_set_halign(1);
-        draw_set_valign(1);
+        iui_align_center();
         
         iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y / 1.4, "-=[Dear ImGui bootleg implementation in Gamemaker]=-", iuCream);
         
-        draw_set_halign(0);
-        draw_set_valign(0);
+        iui_align_pop();
         
         // sprite
-        var sinned = sin(iuiAnimTime * 0.1);
+        var sinned = sine01_;
         var cosBoi = cos(iuiAnimTime * 0.1) * 12;
         var loopTime = 1320 - ((iuiAnimTime*2) % 1680);
+        
         draw_sprite_ext(spr_chip64, 0, loopTime, (SCREEN_CENTER_Y * 2) - 70 - abs(cosBoi), 1, 1, sinned * 12, c_white, 1);
         iui_label_shadow(loopTime + 40, (SCREEN_CENTER_Y * 2) - 90 - abs(cosBoi), "&lt;- A random bloke,#   plz ignore.", iuPiss, 2, 2, iuHellaDark);
         
@@ -336,19 +336,23 @@ switch (ui_tab_main_idx)
         {
             case 0:
                 /// Button
-                draw_set_halign(1);
-                draw_set_valign(1);
+                iui_align_center();
                 
                 // title
                 draw_set_font(fnt_huge);
+                
                 iui_label_shadow(SCREEN_CENTER_X, 180, "=[ Button ]=", iuCream, 5, 5, iuHellaDark);
+                
                 draw_set_font(fnt_consolas);
                 
                 // codebox
                 var strWid = string_width("is_clicked = iui_button(x, y, width, height, ID and label);") + 10;
+                
                 iui_rect(SCREEN_CENTER_X - (strWid / 2) - 2, 228, (strWid + 4), 54, iuMint);
                 iui_rect(SCREEN_CENTER_X - (strWid / 2), 230, strWid, 50, iuHellaDark);
                 iui_label(SCREEN_CENTER_X, 255, "is_clicked = iui_button(x, y, width, height, ID and label);", iuCream);
+                
+                iui_align_pop();
                 
                 // normal buttons
                 iuiButtonShadow = true;
@@ -364,6 +368,7 @@ switch (ui_tab_main_idx)
                 var demoStr    = "string = Button with\#Different ID\#\#\#SPECIAL_ID";
                 var demoStrWid = string_width(demoStr);
                 var demoStrHei = string_height(demoStr);
+                
                 iui_rect_rot_center(SCREEN_CENTER_X + 60, 405, 20, 20, iuCream, 45);
                 iui_rect(SCREEN_CENTER_X + 20, 405, demoStrWid + 20, demoStrHei + 20, iuCream);
                 iui_rect(SCREEN_CENTER_X + 30 + (demoStrWid - string_width("\#\#\#SPECIAL_ID")), 415 + demoStrHei, string_width("\#\#\#SPECIAL_ID"), 4, iuRed); // underline
@@ -380,20 +385,19 @@ switch (ui_tab_main_idx)
                 iui_rect(SCREEN_CENTER_X + 30 + (demoStrWid - string_width("\#\#\#SECRET_ID")), 585 + demoStrHei, string_width("\#\#\#SECRET_ID"), 4, iuRed); // underline
                 iui_label(SCREEN_CENTER_X + 30, 585, demoStr, iuHellaDark);
                 
-                iuiButtonShadow = false;
                 
-                draw_set_halign(0);
-                draw_set_valign(0);
+                iuiButtonShadow = false;
                 break;
                 
             case 1:
                 /// Textbox
-                draw_set_halign(1);
-                draw_set_valign(1);
+                iui_align_center();
                 
                 // title
                 draw_set_font(fnt_huge);
+                
                 iui_label_shadow(SCREEN_CENTER_X, 180, "=[ TextBox ]=", iuCream, 5, 5, iuHellaDark);
+                
                 draw_set_font(fnt_consolas);
     
                 // codebox
@@ -402,19 +406,137 @@ switch (ui_tab_main_idx)
                 iui_rect(SCREEN_CENTER_X - (strWid / 2), 230, strWid, 100, iuHellaDark);
                 iui_label(SCREEN_CENTER_X, 260, "text_var = iui_textbox(x, y, width, height, text_var, ID);", iuCream);
                 iui_label(SCREEN_CENTER_X, 300, "text_var = iui_textbox_numberonly(x, y, width, height, text_var, ID);", iuCream);
-            
+                
+                iui_align_pop();
+                
                 // textboxes
-                /*
-                ui_textbox_testarea_str = iui_textbox(160, 440, 200, 42, ui_textbox_testarea_str, "7-grand-dad");
-                ui_textbox_number_str   = iui_textbox_numberonly(160, 492, 200, 42, ui_textbox_number_str, "number-plz");
-                ui_textbox_thicc_str    = iui_textbox(110, 590, 300, 80, ui_textbox_thicc_str, "extra-thicc");
-                iui_label(70, 445, "STRING", iuCream);
-                iui_label(70, 497, "REAL", iuCream);
-                iui_label(110, 560, "über-THICC ONE", iuCream);
-                iui_label(370, 445, '= "'+string(ui_textbox_testarea_str)+'"', iuCream);
-                iui_label(370, 497, "= "+string(real(ui_textbox_number_str)), iuCream);*/
-                draw_set_halign(0);
-                draw_set_valign(0);
+                var textboxY = 370;
+                ui_textbox_testarea_str = iui_textbox(SCREEN_CENTER_X - 420, textboxY, 200, 50, ui_textbox_testarea_str, "7-grand-dad");
+                ui_textbox_number_str   = iui_textbox_numberonly(SCREEN_CENTER_X - 420, textboxY + 160, 200, 50, ui_textbox_number_str, "number-plz");
+                ui_textbox_thicc_str    = iui_textbox(SCREEN_CENTER_X + 20, textboxY, 400, 210, ui_textbox_thicc_str, "extra-thicc");
+                iui_align_push(fa_right, fa_middle);
+                
+                iui_label(SCREEN_CENTER_X - 430, textboxY + 25, "STRING", iuCream);
+                iui_label(SCREEN_CENTER_X - 430, textboxY + 185, "NUMBER ONLY", iuCream);
+                
+                iui_align_pop();
+                
+                // value
+                var bubbleLabel = strTrim(ui_textbox_testarea_str, 400);
+                draw_textbubble_top(SCREEN_CENTER_X - 420, (textboxY + 70) + abs(sine01_ * 5), max(200, string_width(bubbleLabel) + 20), 50, bubbleLabel, iuCream, iuHellaDark, 32, 20);
+                
+                bubbleLabel = string(ui_textbox_number_str);
+                draw_textbubble_top(SCREEN_CENTER_X - 420, (textboxY + 230) + abs(sine01_ * 5), 200, 50, bubbleLabel, iuCream, iuHellaDark, 32, 20);
+                
+                // value test
+                var chipY = abs(sin(iuiAnimTime * 0.05 * real(ui_textbox_number_str))) * 21;
+                draw_sprite_ext(spr_chip64, 0, SCREEN_CENTER_X - 136, (textboxY + 185) - chipY, 1, 1, real(ui_textbox_number_str) * iuiAnimTime, c_white, 1);
+                break;
+            
+            case 2:
+                /// Sliders
+                iui_align_center();
+                
+                // title
+                draw_set_font(fnt_huge);
+                
+                iui_label_shadow(SCREEN_CENTER_X, 180, "=[ Slider ]=", iuCream, 5, 5, iuHellaDark);
+                
+                draw_set_font(fnt_consolas);
+    
+                // codebox
+                var strWid = string_width("value_var = iui_slider_v(x, y, value_var, height, minval, maxval, ID);") + 10;
+                iui_rect(SCREEN_CENTER_X - (strWid / 2) - 2, 228, (strWid + 4), 104, iuMint);
+                iui_rect(SCREEN_CENTER_X - (strWid / 2), 230, strWid, 100, iuHellaDark);
+                iui_label(SCREEN_CENTER_X, 260, "value_var = iui_slider_h(x, y, value_var, width, minval, maxval, ID);", iuCream);
+                iui_label(SCREEN_CENTER_X, 300, "value_var = iui_slider_v(x, y, value_var, height, minval, maxval, ID);", iuCream);
+                
+                iui_align_pop();
+                
+                // sliders
+                ui_slider_test_h = iui_slider_h(SCREEN_CENTER_X - 110, 400, ui_slider_test_h, 420, 0, 100, "slider-test-h");
+                ui_slider_test_v = iui_slider_v(SCREEN_CENTER_X - 200, 400 - (iuiSliderHHei / 2), ui_slider_test_v, 160 + iuiSliderHHei, 0, 100, "slider-test-v");
+                ui_slider_test_minmax = iui_slider_h(SCREEN_CENTER_X - 110, 560, ui_slider_test_minmax, 420, 20, 42, "slider-test-minmax");
+                
+                draw_textbubble_right(SCREEN_CENTER_X - 460, 442, 200, 60, "Vertical#(iui_slider_v)", iuCream, iuHellaDark, 30, 20);
+                draw_textbubble_topbottom(SCREEN_CENTER_X, 450, 200, 60, "Horizontal#(iui_slider_h)", iuCream, iuHellaDark, 100, 20 + (sine01_ * 4));
+                break;
+                
+            case 3:
+                /// Tabs
+                iui_align_center();
+                
+                // title
+                draw_set_font(fnt_huge);
+                
+                iui_label_shadow(SCREEN_CENTER_X, 180, "=[ Tabs ]=", iuCream, 5, 5, iuHellaDark);
+                
+                draw_set_font(fnt_consolas);
+    
+                // codebox
+                var strWid = string_width("tab_index = iui_tab(x, y, width, height, strings, tab_index, trim mode);") + 10;
+                iui_rect(SCREEN_CENTER_X - (strWid / 2) - 2, 228, (strWid + 4), 54, iuMint);
+                iui_rect(SCREEN_CENTER_X - (strWid / 2), 230, strWid, 50, iuHellaDark);
+                iui_label(SCREEN_CENTER_X, 255, "tab_index = iui_tab(x, y, width, height, strings, tab_index, trim mode);", iuCream);
+                
+                iui_align_pop();
+                
+                ui_tab_loss_idx = iui_tab(SCREEN_CENTER_X - (250 * 2), 350, 250, 64, pack("ATATTTATATATATA", "OMAEWA MOU", "SHINDEIRU", "NANI"), ui_tab_loss_idx, 1);
+        
+                draw_sprite_ext(spr_loss, ui_tab_loss_idx, SCREEN_CENTER_X, 550, 0.5, 0.5, 0, c_white, 1);
+                switch (ui_tab_loss_idx)
+                {
+                    case 0:
+                        draw_set_font(fnt_huge)
+                        iui_label(SCREEN_CENTER_X - 200, 510, "0]", iuDark2);
+                        draw_set_font(fnt_consolas);
+                        break;
+                    case 1:
+                        draw_set_font(fnt_huge)
+                        iui_label(SCREEN_CENTER_X - 200, 510, "1]", iuDark2);
+                        draw_set_font(fnt_consolas);
+                        break;
+                    case 2:
+                        draw_set_font(fnt_huge)
+                        iui_label(SCREEN_CENTER_X - 200, 510, "2]", iuDark2);
+                        draw_set_font(fnt_consolas);
+                        break;
+                    case 3:
+                        draw_set_font(fnt_huge)
+                        iui_label(SCREEN_CENTER_X - 200, 510, "3]", iuDark2);
+                        draw_set_font(fnt_consolas);
+                        break;
+                }
+                break;
+                
+            case 4:
+                /// Misc.
+                iui_align_center();
+                
+                // title
+                draw_set_font(fnt_huge);
+                
+                iui_label_shadow(SCREEN_CENTER_X, 180, "=[ Misc. ]=", iuCream, 5, 5, iuHellaDark);
+                
+                draw_set_font(fnt_consolas);
+                
+                iui_align_pop();
+                
+                // rect
+                var iuRainbow = make_colour_hsv( (iuiAnimTime * 0.1) &amp; $FF, 242, 255 );
+                iui_rect(SCREEN_CENTER_X - 560, 250, 200, 80, iuRainbow);
+                draw_textbubble_top(SCREEN_CENTER_X - 560, 350, 480, 60, "iui_rect(x, y, width, height, colour)", iuCream, iuHellaDark, 42, 20 + (sine01_ * 4));
+                
+                iui_rect_rot(SCREEN_CENTER_X + 32, 290, 80, 80, iuRainbow, iuiAnimTime);
+                draw_textbubble_top(SCREEN_CENTER_X - 10, 350, 600, 60, "iui_rect_rot(x, y, width, height, colour, angle)", iuCream, iuHellaDark, 42, 20 + (sine01_ * 4));
+                
+                iui_rect_rot_center(SCREEN_CENTER_X - 520, 500, 80, 80, iuRainbow, iuiAnimTime);
+                draw_textbubble_top(SCREEN_CENTER_X - 560, 600, 670, 60, "iui_rect_rot_center(x, y, width, height, colour, angle)", iuCream, iuHellaDark, 42, 20 + (sine01_ * 4));
+                
+                iui_line(SCREEN_CENTER_X + 32, 460, 60, iuiAnimTime, 8, iuRainbow);
+                draw_textbubble_top(SCREEN_CENTER_X - 10, 500, 600, 60, "iui_line(x, y, length, angle, thickness, colour)", iuCream, iuHellaDark, 42, 20 + (sine01_ * 4)); 
+                //iui_rect(SCREEN_CENTER_X - 420, 230, strWid, 100, iuRainbow);
+                
                 break;
         }
         
@@ -496,11 +618,13 @@ switch (ui_tab_main_idx)
         ui_tab_ad_idx = iui_tab(SCREEN_CENTER_X - 329, SCREEN_CENTER_Y - 182, 660 / 3, 60, pack("For#debugging", "Performance", "Easy to use#(kinda)"), ui_tab_ad_idx, 0);
         
         // text
-        draw_set_halign(1);
-        draw_set_valign(1);
+        iui_align_center();
+        
         draw_set_font(fnt_huge);
+        
         iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y / 3 + 10, "=[ Y tho? ]=", iuHellaDark);
         iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y / 3, "=[ Y tho? ]=", iuCream);
+        
         draw_set_font(fnt_bigge);
         
         var adStr = "";
@@ -519,9 +643,10 @@ switch (ui_tab_main_idx)
         
         iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y + 285, adStr, iuHellaDark);
         iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y + 280, adStr, iuCream);
+        
         draw_set_font(fnt_consolas);
-        draw_set_halign(0);
-        draw_set_valign(0);
+        
+        iui_align_pop();
         break;
         
     case 3:
@@ -529,11 +654,13 @@ switch (ui_tab_main_idx)
         
         // How
         draw_set_font(fnt_huge);
+        
         iui_label(120, (SCREEN_CENTER_Y / 3) + 10, "How?", iuHellaDark);
         iui_label(120, SCREEN_CENTER_Y / 3, "How?", iuCream);
         
         iui_label(120, (SCREEN_CENTER_Y + 10), "WHY NOT VERTEX BUFFER?", iuHellaDark);
         iui_label(120, SCREEN_CENTER_Y, "WHY NOT VERTEX BUFFER?", iuCream);
+        
         draw_set_font(fnt_consolas);
         
         // list o' stuff
@@ -541,7 +668,8 @@ switch (ui_tab_main_idx)
         var listY = (SCREEN_CENTER_Y / 3) + 100;
         
         draw_set_font(fnt_bigge);
-        draw_set_valign(1);
+        
+        iui_align_push(iui_halign, fa_middle);
         
         iui_sprite_shadow(spr_diamond, 0, listX, listY, iuMint, 1, 0, 5, iuHellaDark);
         iui_label_shadow(listX + 30, listY, "ABUSES GAMEMAKER'S SPRITE-BATCH SYSTEM", iuCream, 0, 5, iuHellaDark);
@@ -562,7 +690,8 @@ switch (ui_tab_main_idx)
         iui_sprite_shadow(spr_diamond, 0, listX, listY, iuMint, 1, 0, 5, iuHellaDark);
         iui_label_shadow(listX + 30, listY + 22, "SHOVING VERTICES INTO VERTEX BUFFER IS#REALLY EXPENSIVE FOR CPU (NOT FUNNY [2])", iuCream, 0, 5, iuHellaDark);
         
-        draw_set_valign(0);
+        iui_align_pop();
+        
         draw_set_font(fnt_consolas);
         break;
         
@@ -599,7 +728,7 @@ switch (ui_tab_main_idx)
         var linkStr    = "@ZIKBAKGURI";
         var linkOffX, linkW, linkH;
 
-        draw_set_valign(1);
+        iui_align_push(iui_halign, fa_middle);
         
         /// Twitter
         // we can't use shadow variant here; We want fully solid shadow, Not tinted shadow.
@@ -674,7 +803,33 @@ switch (ui_tab_main_idx)
         }
         
         iui_label_underline(linkOffX, linkY, linkStr, linkColour, 2, -16);
-        draw_set_valign(0);
+        
+        linkColour = iuSky;
+        linkY += 62;
+        
+        
+        /// GitHub
+        iui_rect(linkX - iconSize, linkY - iconSize + 10, 42, 42, iuHellaDark);
+        iui_sprite(spr_icons42, 3, linkX, linkY, c_white, 1);
+        iui_label(linkX + 31, linkY, "GitHub : ", iuCream);
+        
+        linkStr = "TandyRum1024";
+        linkW = string_width(linkStr) + 4;
+        linkH = string_height(linkStr) + 4;
+        linkOffX = (linkX + 31 + string_width("GitHub : "));
+
+        if (iui_button_nodraw(linkOffX - 2, linkY - 2, linkW, linkH, "btn-gh"))
+            url_open("https://github.com/TandyRum1024");
+        if (iui_hotItem == iui_get_id("btn-gh"))
+        {
+            linkColour = iuRed;
+            iui_rect(linkOffX - 2, linkY - 10, linkW, linkH, iuDark2);
+        }
+        
+        iui_label_underline(linkOffX, linkY, linkStr, linkColour, 2, -16);
+        
+        
+        iui_align_pop();
         
         
         // pfp
@@ -718,13 +873,15 @@ switch (ui_tab_main_idx)
         
         // "Palette"
         draw_set_font(fnt_huge);
-        draw_set_halign(1); draw_set_valign(1);
+        
+        iui_align_center();
         
         iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y / 2.5 + 10, "-= Palette =-", iuHellaDark);
         iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y / 2.5     , "-= Palette =-", iuCream);
         
         draw_set_font(fnt_consolas);
-        draw_set_halign(0); draw_set_valign(0);
+        
+        iui_align_pop();
         break;
 }
 

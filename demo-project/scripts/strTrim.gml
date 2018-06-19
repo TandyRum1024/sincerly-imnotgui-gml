@@ -43,7 +43,7 @@ var em_ = string_width('M');
 var str = argument0;
 var strLen = string_length(argument0);
 
-if (strLen * em_ > argument1)
+if (strLen * em_ >= argument1)
     str = string_copy(argument0, 1, max((argument1 div em_) - 3, 0));
 
 return str;

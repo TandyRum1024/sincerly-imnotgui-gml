@@ -33,6 +33,14 @@ iui_hotItem     = -1;       // What item is HOT - AKA placed mouse over it
 iui_idMap = ds_map_create();
 iui_idx   = 0;
 
+// Why gamemaker has no draw_get_halign() and draw_get_valign()
+iui_alignQueue = ds_queue_create();
+iui_halign = fa_left;
+iui_valign = fa_top;
+
+// LUT stuff
+IUI_SINE_LUT_45DEG = 0.70710696969696969; // Sine 45deg (also 69 lol)
+
 
 /// Styles
 ///=========================================================

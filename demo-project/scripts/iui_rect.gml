@@ -64,8 +64,8 @@ draw_sprite_general(spr_uiwhitepixel, 0, 2, 2, 1, 1, argument0, argument1, argum
     rot     - rotation
 **/
 
-var halfWid = (argument2 >> 1);
-var halfHei = (argument3 >> 1);
+var halfWid = (argument2 / 2);
+var halfHei = (argument3 / 2);
 
 var ox = lengthdir_x(halfWid, argument5) - lengthdir_y(halfHei, argument5);
 var oy = lengthdir_y(halfWid, argument5) + lengthdir_x(halfHei, argument5);

@@ -79,13 +79,13 @@ if (isActive)
     // slider guide text
     if (iuiSliderDisplayValue)
     {
-        draw_set_halign(1);
-        draw_set_valign(1);
+        iui_align_center();
+        
         iui_label(lineX - 32, lineY + (iuiSliderThick / 2), string(sliderMin), iuMint);
         iui_label(lineX + length + 32, lineY + (iuiSliderThick / 2), string(sliderMax), iuRed);
         iui_label(btnX + btnHalfW, lineY + (btnH / 2) + 10, string(sliderVal), iuCream);
-        draw_set_halign(0);
-        draw_set_valign(0);
+        
+        iui_align_pop();
     }
 }
 else if (iui_hotItem == ID)
@@ -96,11 +96,11 @@ else if (iui_hotItem == ID)
     // slider guide text
     if (iuiSliderDisplayValue)
     {
-        draw_set_halign(1);
-        draw_set_valign(1);
+        iui_align_center();
+        
         iui_label(btnX + btnHalfW, lineY + btnH, string(sliderVal), iuCream);
-        draw_set_halign(0);
-        draw_set_valign(0);
+        
+        iui_align_pop();
     }
 }
 iui_rect(btnX, btnY, btnW, btnH, btnColour);
@@ -192,13 +192,13 @@ if (isActive)
     // slider guide text
     if (iuiSliderDisplayValue)
     {
-        draw_set_halign(1);
-        draw_set_valign(1);
+        iui_align_center();
+        
         iui_label(lineX + (iuiSliderThick / 2), lineY - 32, string(sliderMin), iuMint);
         iui_label(lineX + (iuiSliderThick / 2), lineY + length + 32, string(sliderMax), iuRed);
         iui_label(lineX, btnY - 20, string(sliderVal), iuCream);
-        draw_set_halign(0);
-        draw_set_valign(0);
+        
+        iui_align_pop();
     }
 }
 else if (iui_hotItem == ID)
@@ -209,11 +209,11 @@ else if (iui_hotItem == ID)
     // slider guide text
     if (iuiSliderDisplayValue)
     {
-        draw_set_halign(1);
-        draw_set_valign(1);
+        iui_align_center();
+        
         iui_label(lineX, btnY - 20, string(sliderVal), iuCream);
-        draw_set_halign(0);
-        draw_set_valign(0);
+        
+        iui_align_pop();
     }
 }
 

@@ -42,3 +42,7 @@ var em_    = string_height('M') + argument5;
 
 iui_rect(argument0 - 2, argument1 + em_, strWid + 4, argument4, colLighter_adv(argument3, -42, 1.15, 1.3, 1.05)); // underline
 iui_label(argument0, argument1, argument2, argument3);
+#define iui_label_ext
+///iui_label_ext(x, y, str, colour, alpha, sep, width)
+
+draw_text_ext_colour(argument0, argument1, argument2, argument5, argument6, argument3, argument3, argument3, argument3, argument4);

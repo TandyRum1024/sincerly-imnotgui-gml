@@ -17,9 +17,9 @@
     <sprite>sprites\spr_here</sprite>
     <sprite>sprites\spr_advertise</sprite>
     <sprite>sprites\spr_diamond</sprite>
-    <sprite>sprites\spr_pfp</sprite>
     <sprite>sprites\spr_icons42</sprite>
     <sprite>sprites\spr_chip64</sprite>
+    <sprite>sprites\spr_pfp</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
@@ -33,7 +33,6 @@
           <script>scripts\iui_vtx_tri.gml</script>
         </scripts>
         <script>scripts\iui_rect.gml</script>
-        <script>scripts\iui_tri.gml</script>
         <script>scripts\iui_line.gml</script>
       </scripts>
       <scripts name="ELEMENT">
@@ -44,9 +43,11 @@
         <script>scripts\iui_slider_h.gml</script>
         <script>scripts\iui_sprite.gml</script>
       </scripts>
+      <script>scripts\iui_reset.gml</script>
       <script>scripts\iui_init.gml</script>
       <script>scripts\iui_init_vars.gml</script>
       <script>scripts\iui_trim_label.gml</script>
+      <script>scripts\iui_align_push.gml</script>
       <script>scripts\iui_get_all.gml</script>
       <script>scripts\iui_begin.gml</script>
       <script>scripts\iui_end.gml</script>
@@ -64,6 +65,7 @@
       <script>scripts\staircase.gml</script>
       <script>scripts\draw_scroller.gml</script>
       <script>scripts\draw_colourblock.gml</script>
+      <script>scripts\draw_textbubble_left.gml</script>
       <script>scripts\colBrightness.gml</script>
     </scripts>
     <script>scripts\select.gml</script>

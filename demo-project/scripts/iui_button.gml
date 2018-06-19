@@ -78,9 +78,9 @@ else // Nope
 }
 
 // label
-draw_set_halign(1); draw_set_valign(1);
+iui_align_center();
 draw_text_colour(argument0 + (argument2 >> 1), argument1 + (argument3 >> 1), LABEL, iuiColButtonLabel, iuiColButtonLabel, iuiColButtonLabel, iuiColButtonLabel, 1);
-draw_set_halign(0); draw_set_valign(0);
+iui_align_pop();
 
 return isClicky;
 

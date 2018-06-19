@@ -51,7 +51,7 @@ var tabBoxW, tabBoxH;
 var tabID;
 var colBackdrop, colAccent;
 
-draw_set_halign(1); draw_set_valign(1); // center label
+iui_align_center(); // center label
 
 for (i = 0; i < numTabs; i++)
 {
@@ -134,6 +134,6 @@ for (i = 0; i < numTabs; i++)
     tabBoxX += tabBoxW;
 }
 
-draw_set_halign(0); draw_set_valign(0);
+iui_align_pop(); // revert align
 
 return tabCurrent;
