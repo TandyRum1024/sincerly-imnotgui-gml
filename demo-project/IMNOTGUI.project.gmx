@@ -67,6 +67,7 @@
       <script>scripts\draw_colourblock.gml</script>
       <script>scripts\draw_textbubble_left.gml</script>
       <script>scripts\colBrightness.gml</script>
+      <script>scripts\fuckyoulinebreak.gml</script>
     </scripts>
     <script>scripts\select.gml</script>
     <script>scripts\vk2ascii.gml</script>
@@ -75,6 +76,7 @@
     <font>fonts\fnt_consolas</font>
     <font>fonts\fnt_huge</font>
     <font>fonts\fnt_bigge</font>
+    <font>fonts\fnt_vsauce</font>
   </fonts>
   <objects name="objects">
     <object>objects\oKNT</object>

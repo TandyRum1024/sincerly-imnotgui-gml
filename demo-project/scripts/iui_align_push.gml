@@ -4,14 +4,15 @@
     Pushes the current align into the queue and sets to new align.
 */
 
-ds_queue_enqueue(iui_alignQueue, iui_halign, iui_valign);
+var prevH = iui_halign, prevV = iui_valign;
+ds_stack_push(iui_alignStack, iui_halign, iui_valign);
 iui_halign = argument0;
 iui_valign = argument1;
 
 draw_set_halign(iui_halign);
 draw_set_valign(iui_valign);
 
-//show_debug_message("PUSH : ["+string(iui_halign)+","+string(iui_valign)+"] ("+string(ds_queue_size(iui_alignQueue))+")");
+//show_debug_message("PUSH : new ["+string(iui_halign)+","+string(iui_valign)+"] prev [" +string(prevH)+","+string(prevV)+ "] ("+string(ds_stack_size(iui_alignStack))+")");
 
 #define iui_align_pop
 ///iui_align_pop()
@@ -19,13 +20,14 @@ draw_set_valign(iui_valign);
     Pops the previous align from the queue and sets it to current one.
 */
 
-iui_halign = ds_queue_dequeue(iui_alignQueue);
-iui_valign = ds_queue_dequeue(iui_alignQueue);
+var prevH = iui_halign, prevV = iui_valign;
+iui_valign = ds_stack_pop(iui_alignStack);
+iui_halign = ds_stack_pop(iui_alignStack);
 
 draw_set_halign(iui_halign);
 draw_set_valign(iui_valign);
 
-//show_debug_message("POP : ["+string(iui_halign)+","+string(iui_valign)+"] ("+string(ds_queue_size(iui_alignQueue))+")");
+//show_debug_message("POP : new ["+string(iui_halign)+","+string(iui_valign)+"] prev [" +string(prevH)+","+string(prevV)+ "] ("+string(ds_stack_size(iui_alignStack))+")");
 
 #define iui_align_center
 ///iui_align_center();

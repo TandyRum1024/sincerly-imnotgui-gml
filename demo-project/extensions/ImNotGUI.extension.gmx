@@ -30,12 +30,13 @@
   </ConfigOptions>
   <androidPermissions/>
   <IncludedResources>
+    <Resource>Sprites\spr_uiwhitepixel</Resource>
+    <Resource>Sprites\spr_uiwhitepixel1</Resource>
     <Resource>Scripts\IMNOTGUI\DRAW\VTX\iui_vtx_begin</Resource>
     <Resource>Scripts\IMNOTGUI\DRAW\VTX\iui_vtx</Resource>
     <Resource>Scripts\IMNOTGUI\DRAW\VTX\iui_vtx_rect</Resource>
     <Resource>Scripts\IMNOTGUI\DRAW\VTX\iui_vtx_tri</Resource>
     <Resource>Scripts\IMNOTGUI\DRAW\iui_rect</Resource>
-    <Resource>Scripts\IMNOTGUI\DRAW\iui_tri</Resource>
     <Resource>Scripts\IMNOTGUI\DRAW\iui_line</Resource>
     <Resource>Scripts\IMNOTGUI\ELEMENT\iui_button</Resource>
     <Resource>Scripts\IMNOTGUI\ELEMENT\iui_tab</Resource>
@@ -43,9 +44,11 @@
     <Resource>Scripts\IMNOTGUI\ELEMENT\iui_label</Resource>
     <Resource>Scripts\IMNOTGUI\ELEMENT\iui_slider_h</Resource>
     <Resource>Scripts\IMNOTGUI\ELEMENT\iui_sprite</Resource>
+    <Resource>Scripts\IMNOTGUI\iui_reset</Resource>
     <Resource>Scripts\IMNOTGUI\iui_init</Resource>
     <Resource>Scripts\IMNOTGUI\iui_init_vars</Resource>
     <Resource>Scripts\IMNOTGUI\iui_trim_label</Resource>
+    <Resource>Scripts\IMNOTGUI\iui_align_push</Resource>
     <Resource>Scripts\IMNOTGUI\iui_get_all</Resource>
     <Resource>Scripts\IMNOTGUI\iui_begin</Resource>
     <Resource>Scripts\IMNOTGUI\iui_end</Resource>
@@ -57,8 +60,6 @@
     <Resource>Scripts\IMNOTGUI\pack</Resource>
     <Resource>Scripts\IMNOTGUI\shove</Resource>
     <Resource>Scripts\IMNOTGUI\asciiShift</Resource>
-    <Resource>Sprites\spr_uiwhitepixel</Resource>
-    <Resource>Sprites\spr_uiwhitepixel1</Resource>
   </IncludedResources>
   <files/>
 </extension>

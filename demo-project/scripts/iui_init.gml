@@ -34,7 +34,7 @@ iui_idMap = ds_map_create();
 iui_idx   = 0;
 
 // Why gamemaker has no draw_get_halign() and draw_get_valign()
-iui_alignQueue = ds_queue_create();
+iui_alignStack = ds_stack_create();
 iui_halign = fa_left;
 iui_valign = fa_top;
 

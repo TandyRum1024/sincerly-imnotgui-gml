@@ -300,7 +300,7 @@ iui_rect(42, 680, 1196, 40, iuHellaDark);
 var sine01_ = sin(iuiAnimTime * 0.1); // sine cache
 
 var TAB_X = 42;
-ui_tab_main_idx = iui_tab(TAB_X, 30, 140, 50, pack("IMnotGUI", "elements", "why?", "how?", "contact", "MISC."), ui_tab_main_idx, 1);
+ui_tab_main_idx = iui_tab(TAB_X, 30, 160, 50, pack("IMnotGUI", "elements", "ID and LABEL system", "how?", "contact", "MISC."), ui_tab_main_idx, 2);
 
 switch (ui_tab_main_idx)
 {
@@ -425,8 +425,8 @@ switch (ui_tab_main_idx)
                 var bubbleLabel = strTrim(ui_textbox_testarea_str, 400);
                 draw_textbubble_top(SCREEN_CENTER_X - 420, (textboxY + 70) + abs(sine01_ * 5), max(200, string_width(bubbleLabel) + 20), 50, bubbleLabel, iuCream, iuHellaDark, 32, 20);
                 
-                bubbleLabel = string(ui_textbox_number_str);
-                draw_textbubble_top(SCREEN_CENTER_X - 420, (textboxY + 230) + abs(sine01_ * 5), 200, 50, bubbleLabel, iuCream, iuHellaDark, 32, 20);
+                bubbleLabel = "Speed : " + string(ui_textbox_number_str);
+                draw_textbubble_top(SCREEN_CENTER_X - 200, (textboxY + 230) + abs(sine01_ * 5), max(150, string_width(bubbleLabel) + 20), 50, bubbleLabel, iuCream, iuHellaDark, 32, 20);
                 
                 // value test
                 var chipY = abs(sin(iuiAnimTime * 0.05 * real(ui_textbox_number_str))) * 21;
@@ -531,118 +531,76 @@ switch (ui_tab_main_idx)
                 draw_textbubble_top(SCREEN_CENTER_X - 10, 350, 600, 60, "iui_rect_rot(x, y, width, height, colour, angle)", iuCream, iuHellaDark, 42, 20 + (sine01_ * 4));
                 
                 iui_rect_rot_center(SCREEN_CENTER_X - 520, 500, 80, 80, iuRainbow, iuiAnimTime);
-                draw_textbubble_top(SCREEN_CENTER_X - 560, 600, 670, 60, "iui_rect_rot_center(x, y, width, height, colour, angle)", iuCream, iuHellaDark, 42, 20 + (sine01_ * 4));
+                draw_textbubble_top(SCREEN_CENTER_X - 560, 600, 520, 60, "iui_rect_rot_center([same as iui_rect_rot]", iuCream, iuHellaDark, 42, 20 + (sine01_ * 4));
                 
-                iui_line(SCREEN_CENTER_X + 32, 460, 60, iuiAnimTime, 8, iuRainbow);
-                draw_textbubble_top(SCREEN_CENTER_X - 10, 500, 600, 60, "iui_line(x, y, length, angle, thickness, colour)", iuCream, iuHellaDark, 42, 20 + (sine01_ * 4)); 
+                iui_line(SCREEN_CENTER_X + 80, 500, 120, iuiAnimTime, 8, iuRainbow);
+                draw_textbubble_top(SCREEN_CENTER_X - 10, 600, 600, 60, "iui_line(x, y, length, angle, thickness, colour)", iuCream, iuHellaDark, 42, 20 + (sine01_ * 4)); 
                 //iui_rect(SCREEN_CENTER_X - 420, 230, strWid, 100, iuRainbow);
                 
+                iui_align_center();
+                iui_label(SCREEN_CENTER_X - 240, 500 + sine01_ * 10, "Oh, Also this text thing uses#iui_label(x, y, string, colour)...", iuPiss);
+                iui_align_pop();
                 break;
         }
-        
-        /*
-        // Textboxes
-        draw_set_font(fnt_bigge);
-        iui_label(100, 355, "=[ Textboxes! ]=", iuHellaDark);
-        iui_label(100, 350, "=[ Textboxes! ]=", iuCream);
-        draw_set_font(fnt_consolas);
-        iui_label_transform(100, 390, "text_var = iui_textbox(x, y, width, height, text_var, ID);", 0.75, 0.75, 0, iuPiss, 1);
-        iui_label_transform(100, 405, "text_var = iui_textbox_numberonly(x, y, width, height, text_var, ID);", 0.65, 0.65, 0, iuPiss, 1);
-        
-        ui_textbox_testarea_str = iui_textbox(160, 440, 200, 42, ui_textbox_testarea_str, "7-grand-dad");
-        ui_textbox_number_str   = iui_textbox_numberonly(160, 492, 200, 42, ui_textbox_number_str, "number-plz");
-        ui_textbox_thicc_str    = iui_textbox(110, 590, 300, 80, ui_textbox_thicc_str, "extra-thicc");
-        iui_label(70, 445, "STRING", iuCream);
-        iui_label(70, 497, "REAL", iuCream);
-        iui_label(110, 560, "über-THICC ONE", iuCream);
-        iui_label(370, 445, '= "'+string(ui_textbox_testarea_str)+'"', iuCream);
-        iui_label(370, 497, "= "+string(real(ui_textbox_number_str)), iuCream);
-        
-        // Sliders
-        draw_set_font(fnt_bigge);
-        iui_label(700, 105, "=[ Sliders! ]=", iuHellaDark);
-        iui_label(700, 100, "=[ Sliders! ]=", iuCream);
-        draw_set_font(fnt_consolas);
-        iui_label_transform(690, 140, "value_var = iui_slider_h(x, y, value_var, width, minval, maxval, ID);", 0.65, 0.65, 0, iuPiss, 1);
-        iui_label_transform(690, 155, "value_var = iui_slider_v(x, y, value_var, height, minval, maxval, ID);", 0.65, 0.65, 0, iuPiss, 1);
-        
-        draw_sprite_ext(spr_here, 0, 840, 230, 1, 1, -90, c_white, 1);
-        iui_label_transform(850, 240, "Value : "+string(ui_slider_test_h1), 1, 1, sin(iuiAnimTime * 0.1) * 4, iuCream, 1);
-        ui_slider_test_h1 = iui_slider_h(770, 200, ui_slider_test_h1, 300, 0, 100, "slider-test-h1");
-        ui_slider_test_h2 = iui_slider_h(770, 300, ui_slider_test_h2, 300, 0, 100, "slider-test-h2");
-        ui_slider_test_v  = iui_slider_v(720, 190, ui_slider_test_v, 120, 20, 42, "slider-test-v");
-        
-        draw_set_font(fnt_bigge);
-        iui_label(700, 355, "=[ Tabs! ]=", iuHellaDark);
-        iui_label(700, 350, "=[ Tabs! ]=", iuCream);
-        draw_set_font(fnt_consolas);
-        iui_label_transform(690, 390, "tab_index =#iui_tab(x, y, width, height, strings, tab_index, trim mode);", 0.75, 0.75, 0, iuPiss, 1);
-        
-        ui_tab_wack_idx = iui_tab(650, 450, 130, 50, pack("ATATTTATATAT", "OMAEWA MOU", "SHINDEIRU", "NANI"), ui_tab_wack_idx, 1);
-        
-        draw_sprite_ext(spr_loss, ui_tab_demo_idx, 920, 595, 0.5, 0.5, 0, c_white, 1);
-        switch (ui_tab_demo_idx)
-        {
-            case 0:
-                draw_set_font(fnt_huge)
-                iui_label(700, 510, "0]", iuDark2);
-                draw_set_font(fnt_consolas);
-                break;
-            case 1:
-                draw_set_font(fnt_huge)
-                iui_label(700, 510, "1]", iuDark2);
-                draw_set_font(fnt_consolas);
-                break;
-            case 2:
-                draw_set_font(fnt_huge)
-                iui_label(700, 510, "2]", iuDark2);
-                draw_set_font(fnt_consolas);
-                break;
-            case 3:
-                draw_set_font(fnt_huge)
-                iui_label(700, 510, "3]", iuDark2);
-                draw_set_font(fnt_consolas);
-                break;
-        }*/
         break;
 
     case 2:
-        /// Why
-        
-        // screenshot
-        iui_rect(SCREEN_CENTER_X - 400, SCREEN_CENTER_Y - 182, 800, 425, iuHellaDark);
-        draw_sprite(spr_advertise, ui_tab_ad_idx, SCREEN_CENTER_X, SCREEN_CENTER_Y + 30);
-        
-        // tabs
-        iui_rect(SCREEN_CENTER_X - 400, SCREEN_CENTER_Y - 187, 800, 70, iuBrown);
-        ui_tab_ad_idx = iui_tab(SCREEN_CENTER_X - 329, SCREEN_CENTER_Y - 182, 660 / 3, 60, pack("For#debugging", "Performance", "Easy to use#(kinda)"), ui_tab_ad_idx, 0);
+        /// ID demo
         
         // text
         iui_align_center();
         
         draw_set_font(fnt_huge);
         
-        iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y / 3 + 10, "=[ Y tho? ]=", iuHellaDark);
-        iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y / 3, "=[ Y tho? ]=", iuCream);
+        iui_label_shadow(SCREEN_CENTER_X, SCREEN_CENTER_Y / 3, "=[ The ID and LABEL system ]=", iuCream, 0, 10, iuHellaDark);
         
-        draw_set_font(fnt_bigge);
+        draw_set_font(fnt_vsauce);
         
-        var adStr = "";
-        switch (ui_tab_ad_idx)
-        {
-            case 0:
-                adStr = "  For simple GUI, Good for debugging.";
-                break;
-            case 1:
-                adStr = "  By abusing GM's Sprite-Batch,#It's  *HELLA*  fast!";
-                break;
-            case 2:
-                adStr = "  Do it the programmer (kinda) way.";
-                break;
-        }
+        var AMERIKACOLOR = iuPiss;
+        if ((iuiAnimTime &gt;&gt; 5) &amp; 1)
+            AMERIKACOLOR = iuSky;
+            
+        iui_label_shadow(SCREEN_CENTER_X, (SCREEN_CENTER_Y / 3) + 50, "(LABEL : The one that's displayed)", AMERIKACOLOR, 0, 5, iuHellaDark);
         
-        iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y + 285, adStr, iuHellaDark);
-        iui_label(SCREEN_CENTER_X, SCREEN_CENTER_Y + 280, adStr, iuCream);
+        var labelSpacing = 390;
+        var labelYMargin = 80;
+        var infoWid = 320;
+        var infoHei = 100;
+        var infoX = SCREEN_CENTER_X - labelSpacing - (infoWid &gt;&gt; 1);
+        var infoY = SCREEN_CENTER_Y - labelYMargin;
+        
+        // demo 1... Normal ID
+        var idStr = "HAHA YES";
+        
+        iui_rect(infoX, infoY - (infoHei &gt;&gt; 1), infoWid, infoHei, iuHellaDark);
+        iui_label(SCREEN_CENTER_X - labelSpacing, infoY, '" '+ fuckyoulinebreak(idStr) +' "', iuCream);
+        
+        iui_label(infoX + (infoWid &gt;&gt; 1), infoY + infoHei + infoHei, "LABEL : " + iui_trim_label(idStr), iuRed);
+        draw_textbubble_top(infoX, infoY + (infoHei &gt;&gt; 1), infoWid, infoHei, "ID : " + iui_trim_id(idStr), iuCream, iuHellaDark, (infoWid &gt;&gt; 1), 30);
+        iui_rect(infoX, infoY + infoHei + (infoHei &gt;&gt; 1), infoWid, infoHei, iuDark2);
+        iui_label(infoX + (infoWid &gt;&gt; 1), infoY + infoHei + infoHei, "LABEL : " + iui_trim_label(idStr), iuCream);
+        
+        // demo 2... ###
+        infoX = SCREEN_CENTER_X - (infoWid &gt;&gt; 1);
+        idStr = "ASDF###SECRET";
+        
+        iui_rect(infoX, infoY - (infoHei &gt;&gt; 1), infoWid, infoHei, iuHellaDark);
+        iui_label(SCREEN_CENTER_X, infoY, '" '+ fuckyoulinebreak(idStr) +' "', iuCream);
+        
+        draw_textbubble_top(infoX, infoY + (infoHei &gt;&gt; 1), infoWid, infoHei, "ID : " + iui_trim_id(idStr), iuCream, iuHellaDark, (infoWid &gt;&gt; 1), 30);
+        iui_rect(infoX, infoY + infoHei + (infoHei &gt;&gt; 1), infoWid, infoHei, iuBrown);
+        iui_label(infoX + (infoWid &gt;&gt; 1), infoY + infoHei + infoHei, "LABEL : " + iui_trim_label(idStr), iuCream);
+        
+        // demo 3... ##
+        infoX = SCREEN_CENTER_X + labelSpacing - (infoWid &gt;&gt; 1);
+        idStr = "NOTHING##HIDDEN";
+        
+        iui_rect(infoX, infoY - (infoHei &gt;&gt; 1), infoWid, infoHei, iuHellaDark);
+        iui_label(SCREEN_CENTER_X + labelSpacing, infoY, '" '+ fuckyoulinebreak(idStr) +' "', iuCream);
+        
+        draw_textbubble_top(infoX, infoY + (infoHei &gt;&gt; 1), infoWid, infoHei, "ID : " + fuckyoulinebreak(iui_trim_id(idStr)), iuCream, iuHellaDark, (infoWid &gt;&gt; 1), 30);
+        iui_rect(infoX, infoY + infoHei + (infoHei &gt;&gt; 1), infoWid, infoHei, iuNormal);
+        iui_label(infoX + (infoWid &gt;&gt; 1), infoY + infoHei + infoHei, "LABEL : " + iui_trim_label(idStr), iuCream);
         
         draw_set_font(fnt_consolas);
         
@@ -697,32 +655,56 @@ switch (ui_tab_main_idx)
         
     case 4:
         /// DEV INFO
-        // namecard AHAHAHAHAHAH
-        var nameX = 310;
-        var nameY = 120;
+        var pfpX = SCREEN_CENTER_X / 2.5;
+        var pfpY = SCREEN_CENTER_Y / 1.5;
+        var marginWid = (pfpX - 42) * 2;
+        var marginX   = 42 + marginWid;
         
+        // backdrop
+        iui_rect(42, 85, marginWid, 595, iuHellaDark);
+        iui_rect(42, 85, marginWid, 300, iuMint);
+        iui_rect(marginX, 85, 10, 595, iuCream);
+        
+        // iui_rect(marginX + 10, 85, 1186 - marginWid, 595, iuDark2);
+        
+        // pfp
+        draw_sprite(spr_pfp, 0, pfpX, pfpY);
+        
+        // namecard
         draw_set_font(fnt_huge);
+        
+        var nameWid = string_width("MILKFORDUNK") / 2;
+        var nameHei = string_height("MILKFORDUNK") / 2;
+        var nameX = pfpX;
+        var nameY = pfpY + 110;
+        
+        iui_align_center();
+        
         // Big name
-        iui_rect(nameX - 4, nameY, string_width("MILKFORDUNK") + 8, string_height("MILKFORDUNK") + 4, iuBrown);
+        iui_rect(42, nameY - nameHei, marginWid, (nameHei * 2) + 4 + 20, iuDark);
+        iui_rect(nameX - nameWid - 4, nameY - nameHei, (nameWid * 2) + 8, (nameHei * 2) + 4 + 20, iuBrown);
         iui_label_shadow(nameX, nameY, "MILKFORDUNK", iuCream, 0, 9, iuHellaDark);
         
+        draw_set_font(fnt_consolas);
+        
+        // AKA
+        iui_label(nameX, nameY + 42, "(AKA ZIKBAKGURI)", iuPiss);     
+        
         draw_set_font(fnt_bigge);
+        
         // Smol desc.
-        nameY += 110;
-        iui_sprite_shadow(spr_diamond, 0, nameX + 10, nameY + 24, iuRed, 1, 0, 5, iuHellaDark);
-        iui_label_shadow(nameX + 30, nameY, "18 Y/O GAME DEV DINGUS", iuCream, 0, 5, iuHellaDark);
-        iui_sprite_shadow(spr_diamond, 0, nameX + 10, nameY + 76, iuRed, 1, 0, 5, iuHellaDark);
-        iui_label_shadow(nameX + 30, nameY + 52, "TOTAL DINK", iuCream, 0, 5, iuHellaDark);
+        nameY += 100;
+        iui_label_shadow(nameX, nameY, "- IS 18 Y/O GAME DEV BOYO", iuCream, 0, 4, iuHellaDark);
+        iui_label_shadow(nameX, nameY + 50, "- IS TOTAL DINK", iuCream, 0, 4, iuHellaDark);
+        iui_label_shadow(nameX, nameY + 100, "(IS ALSO ARTIST)", iuCream, 0, 4, iuHellaDark);
         
         draw_set_font(fnt_consolas);
-        // AKA
-        nameY = 195;
-        iui_label(nameX, nameY, "(AKA ZIKBAKGURI)", iuPiss);
         
+        iui_align_pop();
         
         // click-able smol link
-        var linkX    = (80  + 21);
-        var linkY    = (120 + 242);
+        var linkX    = marginX + 60;
+        var linkY    = pfpY - 79;
         var iconSize = 21; // half size of the icon
         var linkColour = iuSky;
         var linkStr    = "@ZIKBAKGURI";
@@ -828,12 +810,11 @@ switch (ui_tab_main_idx)
         
         iui_label_underline(linkOffX, linkY, linkStr, linkColour, 2, -16);
         
+        linkY += 62;
+        
+        iui_label(linkX - 21, linkY, "Contact me via e-mail @ yubin2892@gmail.com !", iuMint);
         
         iui_align_pop();
-        
-        
-        // pfp
-        draw_sprite(spr_pfp, 0, 80, 120);
         break;    
     
     case 5:

@@ -72,7 +72,6 @@ var labelCol = argument6;
 var labelWid = string_width(label);
 var labelHei = string_height(label);
 
-
 iui_align_center();
 
 // arrow square
@@ -85,6 +84,7 @@ iui_rect(bx, by, bw, bh, bubbleCol);
 iui_label(bx + (bw / 2), by + (bh / 2), label, labelCol);
 
 iui_align_pop();
+
 #define draw_textbubble_right
 ///draw_textbubble_right(x, y, w, h, text, colour, textColour, arrowPos, arrowSize)
 /**
