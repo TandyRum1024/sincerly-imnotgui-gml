@@ -34,7 +34,9 @@ Produces this result:
 
 Just import the `IMNOTGUI.gmez` file from the folder `EXTENSION_GOES_HERE`, In the GameMaker: Studio.
 
-This repo itself is the "demo" project of **Im!GUI**, For *GameMaker: Studio 1.*
+You can check the "demo" project of **ImNotGUI** in `demo-project`, For *GameMaker: Studio 1.*
+
+Fiddling with the *demo*, You can out check how things work and how you should use it.
 
 Feel free to play around with it!
 
@@ -42,7 +44,8 @@ Feel free to play around with it!
 
 ![gallery picture numero uno](https://TandyRum1024.github.io/imnotgui/gal1.png)
 ![gallery picture numero dos](https://TandyRum1024.github.io/imnotgui/gal2.png)
-![gallery picture numero tres](https://TandyRum1024.github.io/imnotgui/gal3.png)
+![gallery picture numero tres](https://TandyRum1024.github.io/imnotgui/gal-demo-button.png)
+![gallery picture numero tres-2](https://TandyRum1024.github.io/imnotgui/gal-demo-slider.png)
 ![gallery picture numero cuatro](https://TandyRum1024.github.io/imnotgui/logo-small.png)
 
 ### Misc:
