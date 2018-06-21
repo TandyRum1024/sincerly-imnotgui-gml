@@ -18,6 +18,7 @@
 예를들어 이 코드는:
 
 ![An example](https://TandyRum1024.github.io/imnotgui/example-code.png)
+
 이런 결과를 초래해요 *(심지어 클릭도 되요!)*:
 ![A result](https://TandyRum1024.github.io/imnotgui/example-result.png)
 
