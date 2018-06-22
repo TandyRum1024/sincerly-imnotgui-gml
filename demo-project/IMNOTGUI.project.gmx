@@ -71,6 +71,7 @@
     </scripts>
     <script>scripts\select.gml</script>
     <script>scripts\vk2ascii.gml</script>
+    <script>scripts\iui_init_vars_custom.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_consolas</font>

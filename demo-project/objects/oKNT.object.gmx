@@ -27,6 +27,7 @@
             <kind>1</kind>
             <string>/// stort
 iui_init();
+iui_init_vars_custom();
 dbTime = 0;
 show_debug_overlay(true);
 window_set_cursor(cr_none);
@@ -300,7 +301,7 @@ iui_rect(42, 680, 1196, 40, iuHellaDark);
 var sine01_ = sin(iuiAnimTime * 0.1); // sine cache
 
 var TAB_X = 42;
-ui_tab_main_idx = iui_tab(TAB_X, 30, 160, 50, pack("IMnotGUI", "elements", "ID and LABEL system", "how?", "contact", "MISC."), ui_tab_main_idx, 2);
+ui_tab_main_idx = iui_tab(TAB_X, 30, 140, 50, pack("IMnotGUI", "elements", "ID and LABEL system", "how?", "contact", "MISC.", "asdf"), ui_tab_main_idx, 2);
 
 switch (ui_tab_main_idx)
 {
@@ -863,6 +864,37 @@ switch (ui_tab_main_idx)
         draw_set_font(fnt_consolas);
         
         iui_align_pop();
+        break;
+        
+    case 6:
+        /// test
+        
+        iui_align_center();
+        
+        iui_label(SCREEN_CENTER_X + 200, SCREEN_CENTER_Y - 200, "Normal", iuCream);
+        
+        iui_label_shadow(SCREEN_CENTER_X + 200, SCREEN_CENTER_Y - 180, "With Shadows", iuCream, 4, 4, iuHellaDark);
+        
+        iui_label_alpha(SCREEN_CENTER_X + 200 - 5, SCREEN_CENTER_Y - 155, "WOW! TRANSPARENCY!", iuMint, 0.5);
+        
+        iui_label_alpha(SCREEN_CENTER_X + 200, SCREEN_CENTER_Y - 150, "WOW! TRANSPARENCY!", iuRed, 0.5);
+        
+        iui_label_transform(SCREEN_CENTER_X + 200, SCREEN_CENTER_Y - 130, "Transformed one", 2, 2, 8, iuPiss, 1);
+        
+        iui_label_underline(SCREEN_CENTER_X + 200, SCREEN_CENTER_Y - 80, "VERY IMPORTANT", iuSky, 3, -6);
+        
+        iui_align_pop();
+        
+        iui_button(SCREEN_CENTER_X - 400, SCREEN_CENTER_Y - 200, 170, 70, "hello there :&gt;");
+        
+        iui_button(SCREEN_CENTER_X - 400, SCREEN_CENTER_Y - 90, 170, 70, "clicky boyo");
+        
+        iui_tab(SCREEN_CENTER_X - 500, SCREEN_CENTER_Y + 100, 100, 60, pack("Tab 1", "Tab 2", "Tab whatever", "Tab bab", "KAK"), 3, 2);
+        
+        iui_slider_h(SCREEN_CENTER_X + 220, SCREEN_CENTER_Y + 50, (sine01_ * 50) + 50, 128, 0, 100, "sloshie");
+        iui_slider_v(SCREEN_CENTER_X + 180, SCREEN_CENTER_Y + 50, (-sine01_ * 50) + 50, 128, 0, 100, "sloshie2");
+        
+        iui_textbox(SCREEN_CENTER_X + 220, SCREEN_CENTER_Y + 120, 200, 80, "Type something...", "konk");
         break;
 }
 

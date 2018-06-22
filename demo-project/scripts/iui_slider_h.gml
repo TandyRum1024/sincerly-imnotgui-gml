@@ -62,6 +62,12 @@ if (isActive)
     relativeX *= sliderMid;
     sliderVal  = relativeX + sliderMin;
 }
+else // still update if the values somehow changes
+{
+    var relativeX = (sliderVal - sliderMin) / sliderMid;
+    relativeX     = clamp(relativeX, 0, 1);
+    relativePos   = relativeX;
+}
 
 
 // draw
@@ -174,6 +180,12 @@ if (isActive)
     
     relativeY *= sliderMid;
     sliderVal  = relativeY + sliderMin;
+}
+else // still update if the values somehow changes
+{
+    var relativeY = (sliderVal - sliderMin) / sliderMid;
+    relativeY     = clamp(relativeY, 0, 1);
+    relativePos   = relativeY;
 }
 
 
