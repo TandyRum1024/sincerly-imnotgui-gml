@@ -1,4 +1,4 @@
-#### [한국인이세요? 한국어 버젼도 있어요! (공사중)](README-KOR.md)
+### [한국인이세요? 한국어 버젼도 있어요!](README-KOR.md)
 
 
 ![imnotgui logo](https://TandyRum1024.github.io/imnotgui_huge.png)
@@ -46,8 +46,8 @@ iui_label(x, y, string, colour);
 iui_label_alpha(x, y, string, colour, alpha);
 iui_label_transform(x, y, string, x-scale, y-scale, rotation, colour, alpha);
 iui_label_shadow(x, y, string, colour, shadow-x, shadow-y, shadow-colour);
-iui_label_underline(x, y, string, colour, line-thickness, line-offset-y);
-iui_label_ext(x, y, string, colour, alpha, line-seperation, width);
+iui_label_underline(x, y, string, colour, line-thickness, line-offset-y); // line-thickness : underline thickness, line-offset-y : offset for underline
+iui_label_ext(x, y, string, colour, alpha, line-seperation, width); // = draw_text_ext();
 ```
 
 * **Button**
@@ -60,7 +60,7 @@ iui_label_ext(x, y, string, colour, alpha, line-seperation, width);
 
 ```
 iui_button(x, y, width, height, string); // The string means both ID and LABEL... see the section "The ID and LABEL system" for explaination.
-iui_button_nodraw(x, y, width, height, string); // No graphical stuff.. Only clicky part.
+iui_button_nodraw(x, y, width, height, string); // Spooky invisible button D:
 ```
 
 * **Tabs**
@@ -73,6 +73,19 @@ iui_button_nodraw(x, y, width, height, string); // No graphical stuff.. Only cli
 
 ```
 iui_tab(x, y, width, height, array-of-string, tab-index, trim-mode);
+
+// array-of-string : the array containing texts for tabs
+// I've included the pack() script for easier array creation :
+// pack("A", "B", "C") = {"A", "B", "C"}
+// It's a script for making array.
+
+// tab-index : The current tab
+
+// trim-mode : This determines the behaviour when text in tab "Overflows" :
+// Value ranges in 0 ~ 2 :
+// 0 - Do nothing, Let it Overflow.
+// 1 - Trim the text. (EX : "Gnome clongis" -> "Gnome cl...")
+// 2 - Expands the Tab's width to fit the text.
 
 // NOTE : this script also returns current tab index; Better use with variable, like this :
 foo = iui_tab(x, y, width, height, array-of-string, foo, trim-mode);
@@ -121,6 +134,8 @@ bar = iui_textbox(x, y, width, height, bar, ID);
 Just import the `IMNOTGUI.gmez` file from the folder `EXTENSION_GOES_HERE`, In the GameMaker: Studio.
 
 You can check the "demo" project of **ImNotGUI** in `demo-project`, For *GameMaker: Studio 1.*
+
+(Or you can run `DEMO.exe` to see the interactive demo.)
 
 Fiddling with the *demo*, You can out check how things work and how you should use it.
 
