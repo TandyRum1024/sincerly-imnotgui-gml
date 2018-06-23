@@ -133,6 +133,36 @@ bar = iui_textbox(x, y, width, height, bar, ID);
 
 Just import the `IMNOTGUI.gmez` file from the folder `EXTENSION_GOES_HERE`, In the GameMaker: Studio.
 
+Call script `iui_init();` to *initialize* **ImNotGUI** in your *controller object's Create event.*
+
+Call script `iui_update_io();` to *update Inputs* in your *controller object's Step event.*
+
+Now you can adding stuff / designing your GUI in the ***Draw event*** of your *controller object!*
+
+***BUT*** before using any of `iui_*` (aka GUI-related) scripts in the ***Draw event***, You must call `iui_begin();` to Ready up the ImNotGUI...
+
+And after finishing your UI, You must call `iui_end();` to help ImNotGUI prepare for next frame.
+
+***Example :***
+```
+/// Create event ///
+iui_init();
+/* And much more stuff you would normally shove into your Create event... */
+
+/// Step event ///
+iui_update_io();
+/* And much more stuff you would normally shove into your Step event... */
+
+/// Draw event ///
+iui_begin(); // ImNotGUI Activiated!
+
+	iui_button(...);
+	iui_rect(...);
+	iui_hfashkfgjhfgaskdgfjsfdgjdghsfkdgjd(...);
+
+iui_end(); // Endut! hoch hech
+```
+
 You can check the "demo" project of **ImNotGUI** in `demo-project`, For *GameMaker: Studio 1.*
 
 (Or you can run `DEMO.exe` to see the interactive demo.)

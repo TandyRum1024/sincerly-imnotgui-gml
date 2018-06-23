@@ -130,6 +130,36 @@ bar = iui_textbox(x, y, width, height, bar, ID);
 
 `EXTENSION_GOES_HERE` 폴더에 있는 `IMNOTGUI.gmez` 파일을, 겜메에 임포트 하시면 되요.
 
+***쓰시기 전에 :***
+
+스크립트 `iui_init();` 을 당신의 *컨트롤러 오브젝트의 Create 이벤트* 에서 실행 시켜서 **ImNotGUI**를 초기화 시키세요.
+
+스크립트 `iui_update_io();`을 당신의 *컨트롤러 오브젝트의 Step 이벤트* 에서 실행 시켜서 키보드 입력 등등을 업데이트 시켜주세요.
+
+이제 *컨트롤러 오브젝트의* ***Draw 이벤트*** 에서 당신의 UI를 작업하시면 되요!
+
+***하지만*** 그 전에 먼저 `iui_begin();` 으로 ImNotGUI를 준비시켜주시고, 모든 GUI 작업이 완료되셨다면 `iui_end();` 로 ImNotGUI가 다음 프레임에 준비 할 수 있게 마무리 시켜 주세요.
+
+***대략 이런식으로 쓰여요 :***
+```
+/// Create 이벤트 ///
+iui_init();
+/* 그리고 Create 이벤트에 들어갈 만 한 여러가지들... */
+
+/// Step 이벤트 ///
+iui_update_io();
+/* 그리고 Step 이벤트에 들어갈 만 한 여러가지들... */
+
+/// Draw 이벤트 ///
+iui_begin(); // ImNotGUI 작동!
+
+	iui_button(...);
+	iui_rect(...);
+	iui_hfashkfgjhfgaskdgfjsfdgjdghsfkdgjd(...);
+
+iui_end(); // ImNotGUI 끝!
+```
+
 **ImNotGUI** 의 "시연용" 프로젝트도 봐보세요! `demo-project` 폴더에 *게임메이커: 스튜디오 1* 로 만들어진 프로젝트가 있을거에요.
 
 (아니면 `DEMO.exe` 를 실행시켜서 상호작용 가능한 데모를 체험하실 수 있습니다.)
