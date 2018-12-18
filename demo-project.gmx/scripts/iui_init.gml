@@ -48,9 +48,9 @@ iui_style();
 
 
 ///=========================================================
-// anal scratch
+// whoow weew
 iui_init_vars();
 iuiAnimTime = 0;
 
 // optional - set font
-draw_set_font(fnt_consolas);
+// draw_set_font(fnt_consolas);

@@ -1,4 +1,4 @@
-// 2018-12-15 14:12:26
+// 2018-12-18 22:58:49
 ///iui_init()
 /**
     Initalizes the IMNOTUI
@@ -49,9 +49,9 @@ iui_style();
 
 
 ///=========================================================
-// anal scratch
+// whoow weew
 iui_init_vars();
 iuiAnimTime = 0;
 
 // optional - set font
-draw_set_font(fnt_consolas);
+// draw_set_font(fnt_consolas);
